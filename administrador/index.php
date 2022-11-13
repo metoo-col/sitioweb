@@ -7,6 +7,5 @@
     <title>administrador del sitio web</title>
 </head>
 <body>
-    login
-</body>
+    
 </html>
