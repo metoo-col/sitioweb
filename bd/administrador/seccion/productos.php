@@ -8,6 +8,37 @@ echo $txtID."<br/>";
 echo $txtNombre."<br/>";
 echo $txtImagen."<br/>";
 echo $accion."<br/>";
+$host="localhost";
+$bd="sitio";
+$usuario="root";
+$contrasenia="";
+try {
+    $conexion=new PDO("mysql:host=$host;dbname=$bd",$usuario,$contrasenia);
+    if($conexion){
+        echo "conexion exitosa";
+    }
+
+} catch (Exeption $ex) {
+    echo $ex->getMessage();
+    
+}
+
+switch($accion){
+    case "Agregar";
+    //INSERT INTO `productos` (`id`, `nombre`, `imagen`) VALUES (NULL, 'libro de php', 'imagen.jpg');
+    
+        
+    $sentenciaSQL=$conexion->prepare("INSERT INTO `productos` (`id`, `nombre`, `imagen`) VALUES (NULL, 'libro de php', 'imagen.jpg');");
+    $sentenciaSQL->execute();
+    echo "presionado boton agregar";
+    break;
+    case "Modificar";
+    echo "presionado boton modificar";
+    break;
+    case "Cancelar";
+    echo "presionado boton cancelar";
+    break;
+}
 
 ?>
 <div class="col-md-5">
