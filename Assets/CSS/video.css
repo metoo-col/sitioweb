@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;1,400&family=Roboto:ital,wght@0,500;1,500&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Raleway", sans-serif;
+    font-family: "Roboto", sans-serif;
+  }
+  body {
+    background-image: url("ggmc_wallpaper222.png");
+  }
+  .container__header {
+    max-width: 1200px;
+    height: 100%;
+    margin: auto;
+    padding: 20px;
+    padding-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .btn__home-cover{
+    padding: 20px 0px;
+  
+  }
+  .btn__home-cover {
+    padding: 14px 20px;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    font-weight: 500;
+    font-size: 20px;
+  }
+  .btn__home-cover:hover {
+    background: linear-gradient(180deg, #5318e7 50%, #6131d6 100%);
+    background-size: 1px 100px;
+    background-position: 0 -50px;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  .container__video{
+    padding-top: 2%;
+    padding-left: 12%;
+    padding-right: auto;
+    width: 20%;
+    position: absolute;
+  }

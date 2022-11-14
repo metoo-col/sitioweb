@@ -1,0 +1,232 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;1,400&family=Roboto:ital,wght@0,500;1,500&display=swap");
+
+
+body {
+  background-image: url("fondo.jpg");
+}.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: 34px;
+    text-align: center;
+    font-family: arial;
+ 
+
+
+  }
+  h1 {
+    color: #fff;
+    
+  }
+  p {
+    color: #fff;
+  }
+  
+  .price {
+    color: grey;
+    font-size: 22px;
+  }
+  
+  .card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #5318e7;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .card button:hover {
+    opacity: 0.7;
+  }
+ 
+.card2 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: 34px;
+  text-align: center;
+  font-family: arial;
+
+
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card2 button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #5318e7;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card2 button:hover {
+  opacity: 0.7;
+}
+.card3 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: 34px;
+  text-align: center;
+  font-family: arial;
+  position: relative;
+  top: -1049px;
+  left: 356px;
+
+
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card3 button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #5318e7;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card3 button:hover {
+  opacity: 0.7;
+}
+.card4 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: 34px;
+  text-align: center;
+  font-family: arial;
+  position: relative;
+  top: -1089px;
+  left: 356px;
+
+
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card4 button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #5318e7;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card4 button:hover {
+  opacity: 0.7;
+}
+  /*Encabezado*/
+  .container_header {
+    max-width: 500px;
+    height: 100%;
+    margin: auto;
+    padding: 20px;
+    padding-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .btn_inicio_cover {
+    padding: 14px 20px;
+    border: none;
+    background-color: transparent;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 20px;
+  }
+  .btn_inicio_cover:hover {
+    background: linear-gradient(180deg, #5318e7 50%, #6131d6 100%);
+    background-size: 1px 100px;
+    background-position: 0 -50px;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  .btn_sanciones_cover {
+    padding: 14px 20px;
+    border: none;
+    background-color: transparent;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 20px;
+  }
+  .btn_sanciones_cover:hover {
+    background: linear-gradient(180deg, #5318e7 50%, #6131d6 100%);
+    background-size: 1px 100px;
+    background-position: 0 -50px;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  .btn_tienda_cover {
+    padding: 14px 20px;
+    border: none;
+    background-color: transparent;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 20px;
+  }
+  .btn_tienda_cover:hover {
+    background: linear-gradient(180deg, #5318e7 50%, #6131d6 100%);
+    background-size: 1px 100px;
+    background-position: 0 -50px;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  .btn_wiki_cover {
+    padding: 14px 20px;
+    border: none;
+    background-color: transparent;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 20px;
+  }
+  .btn_wiki_cover:hover {
+    background: linear-gradient(180deg, #5318e7 50%, #6131d6 100%);
+    background-size: 1px 100px;
+    background-position: 0 -50px;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  .btn_foro_cover {
+    padding: 14px 20px;
+    border: none;
+    background-color: transparent;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 20px;
+  }
+  .btn_foro_cover:hover {
+    background: linear-gradient(180deg, #5318e7 50%, #6131d6 100%);
+    background-size: 1px 100px;
+    background-position: 0 -50px;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  .login{
+    position: left;
+    margin-top: -100px;
+    margin-left: 250px;
+  }
+  
