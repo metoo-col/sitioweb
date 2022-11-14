@@ -10,11 +10,10 @@ include("../config/bd.php");
 switch($accion){
     case "Agregar";
     
-    $sentenciaSQL=$conexion->prepare("INSERT INTO libros (nombre,imagen) VALUES (':nombre:,imagen);");
+    $sentenciaSQL=$conexion->prepare("INSERT INTO libros (nombre,imagen ) VALUES (':nombre,:imagen);");
     $sentenciaSQL->bindParam(':nombre',$txtNombre);
     $sentenciaSQL->bindParam(':imagen',$txtImagen);
     $sentenciaSQL->execute();
-    
     echo "presionado boton agregar";
     break;
     case "Modificar";
