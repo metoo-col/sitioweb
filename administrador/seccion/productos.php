@@ -4,29 +4,17 @@ $txtID=(isset($_POST['txtID']))?$_POST['txtID']:"";
 $txtNombre=(isset($_POST['txtNombre']))?$_POST['txtNombre']:"";
 $txtImagen=(isset($_FILES['txtImagen']['name']))?$_FILES['txtImagen']['name']:"";
 $accion=(isset($_POST['accion']))?$_POST['accion']:"";
-echo $txtID."<br/>";
-echo $txtNombre."<br/>";
-echo $txtImagen."<br/>";
-echo $accion."<br/>";
-$host="localhost";
-$bd="sitio";
-$usuario="root";
-$contrasenia="";
-try {
-    $conexion=new PDO("mysql:host=$host;dbname=$bd",$usuario,$contrasenia);
-    if($conexion){
-        echo "conexion exitosa";
-    }
+include("../config/bd.php");
 
-} catch (Exeption $ex) {
-    echo $ex->getMessage();
-    
-}
 
 switch($accion){
     case "Agregar";
-    //INSERT INTO `productos` (`id`, `nombre`, `imagen`) VALUES (NULL, 'libro de php', 'imagen.jpg');
-    $sentenciaSQL=$conexion->prepare("INSERT INTO `productos` (`id`, `nombre`, `imagen`) VALUES (NULL, 'libro de php', 'imagen.jpg');");
+    
+    $sentenciaSQL=$conexion->prepare("INSERT INTO libros (nombre,imagen) VALUES (':nombre:,imagen);");
+    $sentenciaSQL->bindParam(':nombre',$txtNombre);
+    $sentenciaSQL->bindParam(':imagen',$txtImagen);
+    $sentenciaSQL->execute();
+    
     echo "presionado boton agregar";
     break;
     case "Modificar";

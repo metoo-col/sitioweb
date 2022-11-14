@@ -16,9 +16,9 @@
     <nav class="navbar navbar-expand navbar-light bg-light">
         <div class="nav navbar-nav">
             <a class="nav-item nav-link active" href="#">administrador del sistema <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="<?php echo $url;?>/bd/administrador/inicio.php ">inicio</a>
-            <a class="nav-item nav-link" href="<?php echo $url;?>/bd/administrador/seccion/productos.php ">productos</a>           
-            <a class="nav-item nav-link" href="<?php echo $url;?>/bd/administrador/seccion/cerrar.php ">cerrar</a>
+            <a class="nav-item nav-link" href="<?php echo $url;?>/administrador/inicio.php ">inicio</a>
+            <a class="nav-item nav-link" href="<?php echo $url;?>/administrador/seccion/productos.php ">productos</a>           
+            <a class="nav-item nav-link" href="<?php echo $url;?>/administrador/seccion/cerrar.php ">cerrar</a>
             <a class="nav-item nav-link" href="<?php echo $url;?>">ver sitio web</a>
         </div>
     </nav>
