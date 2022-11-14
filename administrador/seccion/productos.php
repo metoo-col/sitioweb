@@ -9,12 +9,11 @@ include("../config/bd.php");
 
 switch($accion){
     case "Agregar";
-    
     $sentenciaSQL= $conexion->prepare("INSERT INTO libros (nombre,imagen ) VALUES (:nombre,:imagen);");
     $sentenciaSQL->bindParam(':nombre',$txtNombre);
     $sentenciaSQL->bindParam(':imagen',$txtImagen);
     $sentenciaSQL->execute();
-    echo "presionado boton agregar";
+    
     break;
     case "Modificar";
     echo "presionado boton modificar";
@@ -22,7 +21,17 @@ switch($accion){
     case "Cancelar";
     echo "presionado boton cancelar";
     break;
+    case "Seleccionar";
+    echo "presionado boton seleccionar";
+    break;
+    case "Borrar";
+    echo "presionado boton borrar";
+    break;
+
 }
+$sentenciaSQL= $conexion->prepare("SELECT * FROM libros;");
+$sentenciaSQL->execute();
+$listaLibros=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 <div class="col-md-5">
@@ -78,12 +87,24 @@ switch($accion){
             </tr>
         </thead>
         <tbody>
+            <?php foreach($listaLibros as $libro){?>
             <tr>
-                <td>2</td>
-                <td>aprende php</td>
-                <td>imagen.jpg</td>
-                <td>Seleccionar / Borrar</td>
+                <td><?php echo $libro['id'];?></td>
+                <td><?php echo $libro['nombre'];?></td>
+                <td><?php echo $libro['imagen'];?></td>
+
+                <td>Seleccionar | Borrar
+                    <form method="post">
+                        <input type="hidden" name="txtID" id="txtID" value="<?php echo $libro['id'];?>"/>
+                        <input type="submit" name="accion" value="Selecionar"  class="btn btn-primary"/>
+                        <input type="submit" name="accion" value="Borrar" class="btn btn-danger"/>
+                        
+                    </form>
+
+                </td>
+
             </tr>
+            <?php }?>
          
         </tbody>
     </table>
