@@ -16,7 +16,7 @@
                 <a class="nav-link" href="index.php">Inicio </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Productos</a>
+                <a class="nav-link" href="productos.php">Productos</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="nosotros.php">Nosotros</a>
@@ -24,4 +24,5 @@
         </ul>
     </nav>
     <div class="container">
+        <br/><br/><br/>
         <div class="row">
