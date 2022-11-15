@@ -1,7 +1,15 @@
 <?php
+session_start();
 if($_POST){
-    header("Location: inicio.php");
+    if(($_POST['usuario']=="metoo")&&($_POST['contraseña']=="123")){
+        $_SESSION['usuario']="ok";
+        $_SESSION['nombreUsuario']="metoo";
+        header("Location:inicio.php");	
+    }else{
+        $mensaje="error :usuario o clave incorrecta";
+    }
 }
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -27,6 +35,11 @@ if($_POST){
                         login
                     </div>
                     <div class="card-body">
+                        <?php if(isset($mensaje)){?>
+                        <div class="alert alert-danger" role="alert">
+                            <?php echo $mensaje; ?>
+                        </div>
+                        <?php } ?>
                         <form method="POST">
                         <div class = "form-group">
                             
