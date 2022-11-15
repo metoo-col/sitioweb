@@ -4,6 +4,7 @@ $txtID=(isset($_POST['txtID']))?$_POST['txtID']:"";
 $txtNombre=(isset($_POST['txtNombre']))?$_POST['txtNombre']:"";
 $txtImagen=(isset($_FILES['txtImagen']['name']))?$_FILES['txtImagen']['name']:"";
 $accion=(isset($_POST['accion']))?$_POST['accion']:"";
+
 include("../config/bd.php");
 
 
@@ -30,6 +31,7 @@ switch($accion){
     $sentenciaSQL->bindParam(':nombre',$txtNombre);
     $sentenciaSQL->bindParam(':id',$txtID);
     $sentenciaSQL->execute();
+    
     if($txtImagen!=""){
         $fecha=new DateTime();
         $nombreArchivo=($txtImagen!="")?$fecha->getTimestamp()."_".$_FILES["txtImagen"]["name"]:"imagen.jpg";
@@ -52,11 +54,12 @@ switch($accion){
         $sentenciaSQL->bindParam(':id',$txtID);
         $sentenciaSQL->execute();
     }
+    header("Location:productos.php");
     break;
    
     
     case "Cancelar";
-    echo "presionado boton cancelar";
+    header("Location:productos.php");
     break;
     case "Seleccionar";
     $sentenciaSQL= $conexion->prepare("SELECT imagen FROM libros WHERE id=:id");
@@ -79,6 +82,7 @@ switch($accion){
     if(isset($Libro['imagen']) && ($Libro['imagen']!="imagen.jpg")){
         if(file_exists("../../img/".$Libro['imagen'])){
             unlink("../../img/".$Libro['imagen']);
+            header("Location:productos.php");
         }
     }
 
@@ -106,25 +110,33 @@ $listaLibros=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
         <form method="POST" enctype="multipart/form-data">
     <div class = "form-group">
     <label for="txtID">ID:</label>
-    <input type="text" class="form-control" value="<?php echo $txtID?>" name="txtID" id="txtID" placeholder="ID">
+    <input type="text" required readonly class="form-control" value="<?php echo $txtID?>" name="txtID" id="txtID" placeholder="ID">
     </div>
 
     <div class = "form-group">
     <label for="txtID">Nombre:</label>
-    <input type="text" class="form-control" value="<?php echo $txtNombre?>"name="txtNombre" id="txtNombre" placeholder="nombre del producto">
+    <input type="text" required  class="form-control" value="<?php echo $txtNombre?>"name="txtNombre" id="txtNombre" placeholder="nombre del producto">
     </div>
 
     
     <div class = "form-group">
     <label for="txtID">Imagen:</label>
-    <input type="file" class="form-control" value="<?php echo $txtImagen?>" name="txtImagen" id="txtImagen" placeholder="nombre del producto">
+   <br/>
+    <?php
+    if($txtImagen!=""){
+        ?>
+        <img  class="img-thumbnail rounded" src="../../img/<?php echo $txtImagen; ?>" width="50" alt="" srcset="">
+        <?php
+    }  
+    ?>
+    <input type="file"  class="form-control" value="<?php echo $txtImagen?>" name="txtImagen" id="txtImagen" placeholder="nombre del producto">
     </div>
 
     
    <div class="btn-group" role="group" aria-label="">
-    <button type="submit" name="accion" value="Agregar" class="btn btn-success">Agregar</button>
-    <button type="submit" name="accion" value="Modificar" class="btn btn-warning">Modificar</button>
-    <button type="submit" name="accion" value="Cancelar" class="btn btn-info">Cancelar</button>
+    <button type="submit" name="accion" <?php echo($accion=="<<Seleccionar")?"disabled":""; ?> value="Agregar" class="btn btn-success">Agregar</button>
+    <button type="submit" name="accion" <?php echo($accion=="<<Seleccionar")?"disabled":""; ?> value="Modificar" class="btn btn-warning">Modificar</button>
+    <button type="submit" name="accion" <?php echo($accion=="<<Seleccionar")?"disabled":""; ?> value="Cancelar" class="btn btn-info">Cancelar</button>
    </div>
 
     </form>
@@ -153,7 +165,12 @@ $listaLibros=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
             <tr>
                 <td><?php echo $libro['id'];?></td>
                 <td><?php echo $libro['nombre'];?></td>
-                <td><?php echo $libro['imagen'];?></td>
+                
+                <td>
+                    <img class="img-thumbnail rounded" src="../../img/<?php echo $libro['imagen'];?>" width="50" alt="" srcset="">
+                    
+
+                </td>
 
                 <td>
                 <form method="post">
